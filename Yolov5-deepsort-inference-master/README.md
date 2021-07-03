@@ -1,13 +1,7 @@
-本文地址：[https://blog.csdn.net/weixin_44936889/article/details/112002152](https://blog.csdn.net/weixin_44936889/article/details/112002152)
-
 # 项目简介：
 使用YOLOv5+Deepsort实现车辆行人追踪和计数，代码封装成一个Detector类，更容易嵌入到自己的项目中。
 
-代码地址（欢迎star）：
 
-[https://github.com/Sharpiless/Yolov5-deepsort-inference](https://github.com/Sharpiless/Yolov5-deepsort-inference)
-
-最终效果：
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20201231090541223.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDkzNjg4OQ==,size_16,color_FFFFFF,t_70)
 # YOLOv5检测器：
 
@@ -93,45 +87,3 @@ deepsort = DeepSort(cfg.DEEPSORT.REID_CKPT,
 ```bash
 python demo.py
 ```
-
-# 训练自己的模型：
-参考我的另一篇博客：
-
-[【小白CV】手把手教你用YOLOv5训练自己的数据集（从Windows环境配置到模型部署）](https://blog.csdn.net/weixin_44936889/article/details/110661862)
-
-训练好后放到 weights 文件夹下
-
-# 调用接口：
-
-## 创建检测器：
-
-```python
-from AIDetector_pytorch import Detector
-
-det = Detector()
-```
-
-## 调用检测接口：
-
-```python
-func_status = {}
-func_status['headpose'] = None
-
-result = det.feedCap(im, func_status)
-```
-
-其中 im 为 BGR 图像
-
-返回的 result 是字典，result['frame'] 返回可视化后的图像
-
-# 关注我的公众号：
-
-感兴趣的同学关注我的公众号——可达鸭的深度学习教程：
-
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20210127153004430.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDkzNjg4OQ==,size_16,color_FFFFFF,t_70)
-
-
-# 联系作者：
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20201120115403928.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDkzNjg4OQ==,size_16,color_FFFFFF,t_70#pic_center)
-
-遵循 GNU General Public License v3.0 协议，标明目标检测部分来源：https://github.com/ultralytics/yolov5/
